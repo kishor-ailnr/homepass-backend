@@ -5,7 +5,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 async function sendMail(to, subject, text) {
   const msg = {
     to,
-    from: "rajkishor23849@homepass.app",
+    from: "rajkishor23849@gmail.com",
     subject,
     text,
   };
