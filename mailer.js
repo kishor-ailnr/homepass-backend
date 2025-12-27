@@ -1,20 +1,16 @@
-const nodemailer = require("nodemailer");
+const sgMail = require("@sendgrid/mail");
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "vrohsik@gmail.com",
-    pass: "tjahzlfunttnaxaz"
-  }
-});
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-function sendMail(to, subject, text) {
-  return transporter.sendMail({
-    from: "Home Pass System <vrohsik@gmail.com>",
+async function sendMail(to, subject, text) {
+  const msg = {
     to,
+    from: "no-reply@homepass.app", // works for now
     subject,
-    text
-  });
+    text,
+  };
+
+  await sgMail.send(msg);
 }
 
 module.exports = sendMail;
