@@ -6,6 +6,7 @@ async function sendMail(to, subject, text) {
   const msg = {
     to,
     from: "rajkishor23849@gmail.com", // VERIFIED sender only
+    replyTo: "rajkishor23849@gmail.com",
     subject,
     text,
   };
